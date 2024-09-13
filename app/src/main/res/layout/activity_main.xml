@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout principal: ConstraintLayout para posicionar elementos de manera flexible -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <!-- Título del juego -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Juego de Matemáticas!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:fontFamily="casual"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Tarjeta para el Jugador 1 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPlayer1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFC107"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cardPlayer2"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvPlayer1Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jugador 1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/tvPlayer1Score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puntuación: 0"
+                android:textSize="16sp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta para el Jugador 2 (estructura similar a la del Jugador 1) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPlayer2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#4CAF50"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toEndOf="@id/cardPlayer1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvPlayer2Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jugador 2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/tvPlayer2Score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puntuación: 0"
+                android:textSize="16sp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tarjeta para mostrar la pregunta -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/cardPlayer1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="24dp">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 + 7 = ?"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="casual"
+            android:layout_gravity="center"
+            android:padding="24dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Campo de entrada para la respuesta -->
+    <EditText
+        android:id="@+id/etAnswer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Tu respuesta"
+        android:inputType="number"
+        android:textSize="24sp"
+        android:fontFamily="casual"
+        android:textAlignment="center"
+        android:background="@drawable/rounded_edittext"
+        app:layout_constraintTop_toBottomOf="@id/cardQuestion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="24dp"
+        android:padding="16dp"/>
+
+    <!-- Botón para enviar la respuesta -->
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Enviar!"
+        android:textSize="20sp"
+        android:fontFamily="casual"
+        android:backgroundTint="#FF5722"
+        app:layout_constraintTop_toBottomOf="@id/etAnswer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:padding="16dp"/>
+
+    <!-- Temporizador -->
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiempo: 60s"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Botón para volver a jugar (inicialmente oculto) -->
+    <Button
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Jugar de nuevo!"
+        android:textSize="20sp"
+        android:fontFamily="casual"
+        android:backgroundTint="#2196F3"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tvTimer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"/>
+
+    <!-- Modal para mostrar resultados finales -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/modalLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="32dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Contenido del modal: título del ganador, puntuaciones finales y botón de cierre -->
+            <TextView
+                android:id="@+id/tvWinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Ganador!"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#FF5722"
+                android:fontFamily="casual"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvPlayer1FinalScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puntuación del Jugador 1: 0"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="casual"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tvPlayer2FinalScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puntuación del Jugador 2: 0"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="casual"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/btnCloseModal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Cerrar!"
+                android:textSize="20sp"
+                android:fontFamily="casual"
+                android:backgroundTint="#2196F3"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:padding="16dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

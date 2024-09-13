@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Definición de un shape (forma) personalizado para Android -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Define el color de fondo sólido del shape -->
+    <solid android:color="#FFFFFF"/>
+
+    <!-- Define las esquinas redondeadas del shape -->
+    <corners android:radius="24dp"/>
+
+    <!-- Define el borde del shape -->
+    <stroke android:width="2dp" android:color="#2196F3"/>
+</shape>

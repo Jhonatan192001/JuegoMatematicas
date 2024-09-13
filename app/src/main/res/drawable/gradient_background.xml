@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Define un recurso de forma (shape) para crear un fondo con gradiente -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Crea un gradiente lineal -->
+    <gradient
+        android:startColor="#3F51B5"
+        android:endColor="#2196F3"
+        android:angle="135"/>
+</shape>
