@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Iniciar el juego, estableciendo los valores iniciales
+     * Inicia el juego, estableciendo los valores iniciales
      * y generando la primera pregunta.
      */
     private fun startGame() {
